@@ -6,7 +6,7 @@ const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-const openai = OpenAIApi(configuration);
+const openai = new OpenAIApi(configuration);
 
 async function main () {
     const chatCompletion = await openai.createChatCompletion({
@@ -15,6 +15,8 @@ async function main () {
             { role: 'user', content: 'what is the capital of Uganda?'}
         ]
     });
+
+    console.log(chatCompletion)
 }
 
 main();
